@@ -10,7 +10,7 @@ services:
             context: ./docker/prestashop_web
             dockerfile: Dockerfile
 
-    prestashop_db:
+    prestashop_db_server:
         networks: 
             - prestashop_net
         ports: 
