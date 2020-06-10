@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+    prestashop_web:
+        networks: 
+            - prestashop_net
+        ports:
+            - 8080:80
+        build:
+            context: ./docker/prestashop_web
+            dockerfile: Dockerfile
+
+    prestashop_db:
+        networks: 
+            - prestashop_net
+        ports: 
+            - 3307:3306
+        env_file:
+            - ./docker/prestashop_db_server/.env
+        build:
+            context: ./docker/prestashop_db_server
+            dockerfile:  Dockerfile
+networks:
+    prestashop_net:
+        driver: bridge
