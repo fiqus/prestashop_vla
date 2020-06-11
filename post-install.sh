@@ -7,7 +7,7 @@ else
     if [ -d "$ADMIN_DIR" ]; then
       echo "Deleting install folder and moving admin folder to: ${ADMIN_DIR}..."
       docker exec economia_social_vla_prestashop_web_1 rm -rf /var/www/html/install
-      docker exec economia_social_vla_prestashop_web_1 mv /var/www/html/admin /var/www/html/admin${ADMIN_PASS}
+      docker exec economia_social_vla_prestashop_web_1 mv ${ADMIN_DIR} ${ADMIN_DIR}${ADMIN_PASS}
 
       echo "OK. You can enter the admin console in /admin{ADMIN_PASS}"
     else
