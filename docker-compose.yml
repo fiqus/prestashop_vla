@@ -1,9 +1,11 @@
-version: "3.8"
+version: "3.3"
 
 services:
     prestashop_web:
         networks: 
             - prestashop_net
+        volumes:
+            /var/www/html:/var/lib/prestashop_web
         ports:
             - 8080:80
         build:
@@ -14,7 +16,7 @@ services:
         networks: 
             - prestashop_net
         volumes:
-            - /opt/mysql_data:/var/lib/mysql
+            - /opt/mysql_data:/var/lib/prestashop_db_server
         ports: 
             - 3307:3306
         env_file:
