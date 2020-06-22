@@ -24,6 +24,19 @@ services:
         build:
             context: ./docker/prestashop_db_server
             dockerfile:  Dockerfile
+
+    php_my_admin:
+        networks: 
+            - prestashop_net
+        ports:
+            - 8081:80
+        env_file:
+            - ./docker/php_my_admin/.env
+        build:
+            context: ./docker/php_my_admin
+            dockerfile:  Dockerfile
+
+
 networks:
     prestashop_net:
         driver: bridge
