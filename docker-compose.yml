@@ -5,7 +5,7 @@ services:
         networks: 
             - prestashop_net
         volumes:
-            - /var/prestashop_vla/prestashop_web:/var/www/html
+            - prestashop-data:/var/www/html
         ports:
             - 8080:80
         build:
@@ -36,7 +36,8 @@ services:
             context: ./docker/php_my_admin
             dockerfile:  Dockerfile
 
-
+volumes:
+    prestashop-data: {}
 networks:
     prestashop_net:
         driver: bridge
