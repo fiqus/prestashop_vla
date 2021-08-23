@@ -1,2 +1,2 @@
-FROM prestashop/vla:1.0
+FROM prestashop/prestashop
 EXPOSE 80
